@@ -1,0 +1,188 @@
+
+#text_div {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+h1 {
+    font-family: 'Abril Fatface';
+    text-align: center;
+    padding-bottom: 180px;
+    color: #051750;
+    font-size: 45px;
+}
+
+h2 {
+    font-family: 'Abril Fatface';
+    padding-top: 15px;
+    padding-bottom: 10px;
+    color: #051750;
+    font-size: 25px;
+}
+
+p {
+    font-family: 'Open Sans';
+    color: #020000;
+    font-size: 9px;
+    width: 450px;
+}
+
+h3 {
+  position: absolute;
+  border-style: solid;
+  border-width: 3px;
+  border-left-width: 8px;
+  border-right-width: 8px;
+  border-color: #051750;
+  top: 115px;
+  left: 70px;
+  width: 1340px;
+  height: 155px;
+}
+
+
+div.intro1 {
+  font-family: 'Open Sans';
+  text-align: justify;
+  color: #051750;
+    font-size: 15px;
+  position: absolute;
+  top: 150px;
+  left: 90px;
+  width: 420px;
+  height: 60px;
+}
+
+div.intro2 {
+  font-family: 'Open Sans';
+  text-align: center;
+    color: #000000;
+    font-size: 15px;
+  position: absolute;
+  top: 158px;
+  left: 530px;
+  width: 420px;
+  height: 60px;
+}
+
+div.intro3 {
+  font-family: 'Open Sans';
+  text-align: justify;
+  color: #051750;
+    font-size: 15px;
+  position: absolute;
+  top: 150px;
+  right: 90px;
+  width: 420px;
+  height: 60px;
+}
+
+div.absolute {
+  font-family: 'Open Sans';
+  text-align: justify;
+    color: #000000;
+    font-size: 15px;
+  position: absolute;
+  top: 352px;
+  right: 110px;
+  width: 420px;
+  height: 60px;
+  border: 3px solid #ffffff;
+}
+
+div.absolute2 {
+  font-family: 'Open Sans';
+  text-align: justify;
+    color: #000000;
+    font-size: 15px;
+  position: absolute;
+  top: 3090px;
+  right: 90px;
+  width: 380px;
+  height: 60px;
+  border: 3px solid #ffffff;
+}
+
+div.absolute3 {
+  font-family: 'Open Sans';
+  text-align: justify;
+    color: #000000;
+    font-size: 15px;
+  position: absolute;
+  top: 939px;
+  right: 570px;
+  width: 340px;
+  height: 60px;
+  border: 3px solid #ffffff;
+}
+
+div.absolute4 {
+  font-family: 'Open Sans';
+  text-align: justify;
+    color: #000000;
+    font-size: 15px;
+  position: absolute;
+  top: 1445px;
+  right: 570px;
+  width: 340px;
+  height: 60px;
+  border: 3px solid #ffffff;
+}
+
+div.absolute5 {
+  font-family: 'Open Sans';
+  text-align: justify;
+    color: #000000;
+    font-size: 15px;
+  position: absolute;
+  top: 2020px;
+  right: 570px;
+  width: 340px;
+  height: 60px;
+  border: 3px solid #ffffff;
+}
+
+.houses_text {
+    color: #527298;
+}
+
+.units_text {
+    color: #e45756;
+}
+
+.townhouses_text {
+    color: #ff7f0e;
+}
+
+
+p.a {
+    font-style: normal;
+  }
+  
+p.b {
+    font-style: italic;
+  }
+  
+p.c {
+    font-style: oblique;
+  }
+
+p.thick {
+    font-weight: bold;
+  }
+
+#Calign {
+    text-align: center;
+  }
+  
+#Lalign {
+    text-align: left;
+  }
+  
+#Ralign {
+    text-align: right;
+  }
+  
+#Justify {
+    text-align: justify;
+  }

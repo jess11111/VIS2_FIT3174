@@ -1,0 +1,67 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 520,
+    "height": 400,
+    "projection": {"type": "mercator",
+       "center": [145.020, -37.835],
+       "scale": 51000},
+    "layer": [
+    {
+    "data": {
+    "url": 
+   "https://raw.githubusercontent.com/jess11111/FIT3174/main/features%20(3)%20(1)%20(3).topojson"
+   ,
+    "format": {"type": "topojson", "feature": "features"}
+    },
+    "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}
+    },
+    {
+    "data": {
+    "url": "https://raw.githubusercontent.com/jess11111/FIT3174/main/propsymbolmap_data.csv"
+    },
+    "params": [
+      {
+         "name": "Select",
+         "select": {"type": "point", "fields": ["Buildingage"]},
+         "bind": {
+           "Buildingage": {"input": "range", "min": 0,"max": 160,"step": 1, "name": "Age (Years) Selection"}
+         }
+   },
+     
+      {"name": "Selection",
+      "select": {"type": "point", "fields": ["Type"]},
+      "bind": {"input": "select", "options": [null, "h", "u", "t"],
+      "labels": ["Show All", "House", "Unit", "Townhouse"],
+      "name": "Property Type Selection:"}}
+    ],
+    
+    "mark": {"type": "circle", "tooltip": {"content": "data"}},
+    "encoding": {
+    "longitude": {"field": "Longtitude", "type": "quantitative"},
+    "latitude": {"field": "Lattitude", "type": "quantitative"},
+    "size": {
+    "field": "Buildingage",
+    "type": "quantitative",
+
+    "scale": {"type": "threshold", "domain": [15, 30, 60],
+    "range": [8, 20, 60, 200]}
+    },
+    "opacity": 
+    {"condition": {"selection": "Selection", "value": 0.6},
+    "value": 0.0},
+    "color": {
+        "condition": {
+           "param": "Selection",
+           "field": "Type", "type": "nominal"
+         },
+         "value": "grey"},
+    "tooltip": [{"field": "Suburb", "type": "nominal"},
+    {"field": "Longtitude", "type": "quantitative"},
+    {"field": "Lattitude", "type": "quantitative"},
+    {"field": "Suburb", "type": "nominal"}]
+    }
+    }
+   
+    ]
+   }
+   

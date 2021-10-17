@@ -1,0 +1,15 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {"url": "https://raw.githubusercontent.com/jess11111/FIT3174/main/ref%20(version%201).csv"},
+  "width": 240, "height": 120,
+  "title": {"text": "Sizes of Different Property Types", "fontSize":18, "color": "#051750" },
+  "mark": "rect",
+  "encoding": {
+    "y": {"field": "Type", "type": "nominal"},
+    "x": {"field": "Bedroom", "type": "ordinal", "title":"Bedroom(s)", "scale": {"domain": [1,2,3,4,5,6]}},
+    "color": {"aggregate": "count", "field": "Bedroom", "legend": null}
+  },
+  "config": {
+    "axis": {"grid": true, "tickBand": "extent"}
+  }
+}

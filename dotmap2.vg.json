@@ -1,0 +1,54 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {"text": "Old vs New", "fontSize":18, "color": "#051750"  },
+    "width": 490,
+    "height": 430,
+    "projection": {"type": "mercator",
+  "center": [145.020, -37.835],
+  "scale": 51000},
+    "layer": [
+    {
+    "data": {
+    "url": "https://raw.githubusercontent.com/jess11111/FIT3174/main/features%20(3)%20(1)%20(3).topojson"
+   ,
+    "format": {"type": "topojson", "feature": "features"}
+    },
+    "mark": {"type": "geoshape", "fill": "#cdcdcd", "stroke": "white"}
+    },
+    {
+    "data": {
+    "url": "https://raw.githubusercontent.com/jess11111/FIT3174/main/ref%20(version%201).csv"
+    },
+    "mark": {"type": "circle", "tooltip": {"content": "data"}},
+    "encoding": {
+    "longitude": {"field": "Longtitude", "type": "quantitative"},
+    "latitude": {"field": "Lattitude", "type": "quantitative"},
+    "size": {
+    "field": "Rooms",
+    "type": "quantitative",
+    "scale": {"domain": [1, 10]}
+    },
+    "size": {"value": 10},
+    "color": {
+    "field": "Buildingage",
+    "title": "Building Age (Years)",
+    "type": "quantitative",
+    "scale": {"scheme": "yelloworangebrown",
+ "type": "threshold",
+ "domain": [20, 60, 100],
+ "range": ["#ffffcc", "#a1dab4", "#41b6c4", "#225ea8"]
+ }
+ ,"legend": {"orient": "none","direction": "horizontal","padding":-12,"legendX":22,"legendY":348}
+
+    },
+    "tooltip": [
+      {"field": "YearBuilt", "type": "quantitative", "title": "Year Built"},
+        {"field": "Buildingage", "type": "quantitative", "title": "Building Age"},
+        {"title": "Suburb", "field": "Suburb", "type": "nominal"},
+        {"title": "Council", "field": "CouncilArea", "type": "nominal"},
+        {"title": "Region", "field": "Regionname", "type": "nominal"}
+    ]
+    }
+    }
+    ]
+    }

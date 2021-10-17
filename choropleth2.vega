@@ -1,0 +1,40 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Property Price per Bedroom",
+    "width": 800,
+    "height": 600,
+    "projection": {"type": "equirectangular"},
+    "data": {
+    "url": "https://raw.githubusercontent.com/jess11111/FIT3174/main/features%20(3)%20(1)%20(3).topojson",
+    "format": {"type": "topojson", "feature": "features"}
+    },
+    "transform": [
+    {
+    "lookup": "properties.vic_loca_2",
+    "from": {
+    "data": {
+    "url": "https://raw.githubusercontent.com/jess11111/FIT3174/main/choroplethdata.csv"
+    },
+    "key": "Uppercase",
+    "fields": ["Priceperbedroom"]
+    }
+    }
+    ],
+    "mark": {"type": "geoshape"},
+    "encoding": {
+    "color": {
+    "field": "Priceperbedroom",
+    "title": "$ per room",
+    "type": "quantitative",
+    "scale": {
+    "type": "threshold",
+    "domain": [250000, 400000, 500000, 700000],
+    "range": ["#fed3ac", "#fca95e", "#f57604", "#e6550d", "#a63603"]
+    }
+    },
+    "tooltip": [
+      {"field": "Priceperbedroom", "type": "quantitative", "title": "Priceperbedroom"},
+      {"title": "Suburb", "field": "properties.vic_loca_2", "type": "nominal"}
+    ]
+    }
+   }

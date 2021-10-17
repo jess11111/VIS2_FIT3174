@@ -1,0 +1,87 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 490,
+    "height": 400,
+    "title": {"text": "Properties <20 Years Old", "fontSize":18, "color": "#051750" },
+    "projection": {
+      "type": "mercator",
+      "center": [145.02, -37.835],
+      "scale": 45000
+    },
+    "params": [
+          {
+            "name": "BuildingFilter",
+            "value": 0,
+            "bind": {
+              "input": "range",
+              "min": 0,
+              "max": 19,
+              "step": 1,
+              "name": "Age (Years) Selection"
+            }
+          }
+    ],
+    "layer": [
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/jess11111/FIT3174/main/features%20(3)%20(1)%20(3).topojson",
+          "format": {"type": "topojson", "feature": "features"}
+        },
+        "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}
+      },
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/jess11111/FIT3174/main/stackedbarchart_data2.csv"
+        },
+        "params": [
+          {
+            "name": "Selection",
+            "select": {"type": "point", "fields": ["Type"]},
+            "bind": {
+              "input": "select",
+              "options": [null, "h", "t", "u"],
+              "labels": ["Show All", "House", "Townhouse","Unit"],
+              "name": "Property Type Selection:"
+            }
+          }
+        ],
+        "transform": [{"filter": "datum.Buildingage > BuildingFilter "}],
+        "mark": {"type": "circle", "tooltip": {"content": "data"}},
+        "encoding": {
+          "longitude": {"field": "Longtitude", "type": "quantitative"},
+          "latitude": {"field": "Lattitude", "type": "quantitative"},
+          "size": {
+            "field": "Buildingage",
+            "type": "quantitative",
+            "legend": {"orient": "none","direction": "vertical","padding":-5,"legendX":100,"legendY":303,"gradientLength":800,"title":"Building Age (Years)"},
+            "scale": {
+              "type": "threshold",
+              "domain": [5, 15],
+              "range": [20, 80, 300]
+            }
+          },
+          "opacity": {
+            "condition": {"selection": "Selection", "value": 0.4},
+            "value": 0
+          },
+          "color": {
+            "condition": {
+              "param": "Selection",
+              "field": "Type",
+              "type": "nominal", "legend":null
+            },
+            "value": "grey"
+          },
+          "tooltip": [
+             {"field": "YearBuilt", "type": "nominal", "title": "Year Built"},
+            {"field": "Buildingage", "type": "quantitative", "title": "Building Age"},
+            {"field": "Suburb", "type": "nominal"},
+            {"field": "CouncilArea", "type": "nominal", "title": "Council"},
+            {"field": "Longtitude", "type": "quantitative"},
+            {"field": "Lattitude", "type": "quantitative"}
+          ]
+        }
+      }
+    ]
+  }
+    

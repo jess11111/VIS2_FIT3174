@@ -1,0 +1,133 @@
+
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 380,
+    "height": 430,
+    "params": [
+          {
+            "name": "BuildingFilter",
+            "value": 0,
+            "bind": {
+              "input": "range",
+              "min": 0,
+              "max": 20000,
+              "step": 1,
+              "name": "$/meter Selection"
+            }
+          }
+    ],
+    "data": {
+    "url": "https://raw.githubusercontent.com/jess11111/FIT3174/main/bubbledata.csv"
+    },
+    "transform": [
+        {"filter": "datum.Priceperkm > 0"},
+        {"filter": "datum.Pricepermeterland > 0"},
+  {"filter": "datum.Priceperkm > BuildingFilter"}
+    ],
+    
+    "encoding": {
+    "x": {
+    "field": "Priceperkm",
+    "type": "quantitative",
+    "gridColour": "white",
+    "title": "$/km from CBD",
+    "scale":{
+        "type":"log"
+        }
+    },
+    "y": {
+    "field": "Pricepermeterland",
+    "type": "quantitative",
+   "gridColour": "white",
+    "title": "$/meter sqaure of land area",
+    "scale":{
+        "type":"log"
+        }
+    },
+    "color": {
+    "field": "Type",
+    "type": "nominal"
+    },
+  
+    "opacity": {
+     "value": 0.5}, 
+     "tooltip":[
+        {"field": "Suburb", "type": "nominal"},
+        {"field": "CouncilArea", "type": "nominal"},
+        {"field": "Price", "type": "quantitative", "format": ","},
+        {"field": "Landsize", "type": "quantitative"},
+        {"field": "Distance", "type": "quantitative"},
+        {"field": "Price/km", "type": "quantitative", "format": ","},
+        {"field": "Pricepermeterland",
+        "type": "quantitative",
+        "format": ".2f"}
+        ]
+    },
+  
+  "layer": [
+    {
+      "selection": {
+        "continent_highlight": {
+          "type": "multi",
+          "fields": ["Type"],
+          "bind": "legend"
+        }
+      },
+      "mark": "circle",
+      "encoding": {
+        "size": {
+          "field": "Distance",
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
+            "domain": [5, 10, 20],
+            "range": [10, 50, 150, 200]
+          },
+          "legend": {"orient": "none","direction": "vertical","padding":-5,"legendX":322,"legendY":13,"gradientLength":800,"format": ".1s"}
+        },
+        "color": {
+          "field": "Type",
+          "type": "nominal", "legend":null,
+          "scale": {
+            "domain": [
+              "h",
+              "u",
+              "t"
+            ],
+            "range": [
+              "#527298",
+              "#e45756",
+              "#ff7f0e"
+            ]
+          }
+        },
+        "opacity": {
+          "condition": {"selection": "continent_highlight", "value": 0.5},
+          "value": 0.2
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "dx": 42,
+        "fontSize": 12,
+        "fontStyle": "italic"
+      },
+      "encoding": {
+        "text": {"field": "Price", "type": "quantitative"},
+        "color": {"value": "black"},
+        "opacity": {
+          "condition": {
+            "test": "datum['Price'] == '4275000' || datum['Price'] == '145000' || datum['Price'] == '170000' || datum['Price'] == '' || datum['Price'] == '6500000' ",
+            "value": 1
+          },
+          "value": 0
+        }
+      }
+    }
+  ]
+   }
+   

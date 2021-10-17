@@ -1,0 +1,76 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": { "url": "https://raw.githubusercontent.com/jess11111/FIT3174/main/stackedbarchart_data3.csv" },
+    "title": {"text": "Average Property Price", "fontSize":18, "color": "#051750" },
+    "width": 360,
+    "height": 450,
+    "resolve": { "scale": { "color": "independent" } },
+    "encoding": {
+        "x": {
+            "aggregate": "mean",
+            "field": "Price",
+            "type": "quantitative",
+            "title": "No. Sold",
+            "axis": null
+        },
+        "y": {
+            "field": "CouncilArea",
+            "type": "ordinal", 
+            "axis":null,
+            "title": "",
+            "sort": ["Boroondara City Council",
+                "Darebin City Council",
+                "Moreland City Council",
+                "Glen Eira City Council",
+                "Moonee Valley City Council",
+                "Melbourne City Council",
+                "Maribyrnong City Council",
+                "Brimbank City Council",
+                "Bayside City Council",
+                "Port Phillip City Council",
+                "Yarra City Council",
+                "Monash City Council",
+                "Stonnington City Council",
+                "Hobsons Bay City Council",
+                "Manningham City Council",
+                "Whitehorse City Council",
+                "Maroondah City Council",
+                "Knox City Council"
+            ]
+        }
+    },
+    "layer": [{
+            "mark": "bar",
+            "encoding": {
+                "color": {
+                    "field": "Type",
+                    "type": "nominal",
+                    "legend": null
+                },
+                "opacity": {
+                    "condition": { 
+                      "test": "datum['CouncilArea'] !='Maroondah City Council' "
+                    ,"value": 0.6 },
+                    "value": 1
+                },
+
+
+                "tooltip": [
+                    { "field": "CouncilArea", "type": "nominal", "title": "Council" },
+                    { "aggregate": "mean", "field": "Price", "type": "quantitative", "format": "$,.3s", "title": "Average Price" },
+                    { "aggregate": "count", "field": "Suburb", "type": "quantitative", "title": "No. Sold" },
+                    { "field": "Type", "type": "nominal", "title": "Property Type" }
+                ]
+            }
+        },
+
+        {
+            "mark": { "type": "text", "align": "left", "dx": -40, "dy": 3 },
+            "encoding": {
+                "x": { "aggregate": "mean", "field": "Price", "type": "quantitative", "stack": "zero" },
+                "color": { "field": "Type", "type": "nominal", "scale": { "range": ["white"] }, "legend": null },
+                "text": { "aggregate": "mean", "field": "Price", "type": "quantitative", "format": "$,.3s" }
+            }
+        }
+    ]
+}

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+        
+        <script src="vega_lite_vis.js"></script>
+
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="fonts.css">
+
+        
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+ 
+        <title>FIT3179 VIS2 </title>
+
+        </head>
+    
+        
+        <body style="margin: 40px;padding-bottom; 10px">
+            
+            <h1> 
+                Want to buy real estate in the heart of Melbourne? 
+            </h1>
+
+     
+<h3>  </h3>
+
+      <div class="intro1">        
+        The dataset provided by Tony Pino on Kaggle contain information about Melbourne housing market clearance 
+        from Jan 2016 to Aug 2018. 
+        <br> 
+        <br> 
+        This visualisation zooms in on the council areas surronding Melbourne's CBD (see chart axis below). 
+    </div>
+
+    <div class="intro2">     
+         
+        We focus on 3 property types:
+        <br>
+        <br>
+        <strong> h = <span class='houses_text'> houses </span> </strong>
+        <br>
+        <strong> t = <span class='townhouses_text'> townhouses </span> </strong>
+        <br>
+        <strong> u = <span class='units_text'>units</span> </strong>
+    </div>
+
+    <div class="intro3">
+        What type of property would most suit you? 
+        Which region offers you the best (or worst) buying solution based on your preferences?
+        Lastly, based on recent data, during what times of the year should you make the purchase?
+        Upon examination of this visualisation, answers to these questions may be made a little clearer.  
+    </div>
+
+      <div id="stackedbar"> 
+    </div>
+
+    <div id="stackedbar3"> 
+    </div>
+
+    <div class="absolute">
+        The left-most chart shows some of the most and least sought after and populated council areas around metropolitan Melbourne.
+        If you're on a budget, an <span class='units_text'>unit</span> in Bayside or Yarra City Council may be most suitable. 
+        
+
+         Buying a <span class='houses_text'>house</span> will cost you around twice as much.  
+         Despite the lower demand (or supply), <span class='houses_text'>houses</span> in
+         Maroondah appears to be the most expensive when compared to other councils. 
+        <br>
+        <br>
+        The heatmap below indicates that 3-4 bedroom <span class='houses_text'>houses</span> 
+        were most frequently purchased/listed. 
+        If you're after a 5+ bedroom property, a <span class='houses_text'>house</span> may be your only option.
+    </div>
+
+      <div id="heatmap2" style="padding-left: 35px"> 
+    </div>
+
+
+    <h2 id="Calign"> 
+        Once you've considered property type... WHERE exactly should you buy?
+    </h2>
+
+    <div class="absolute3">
+        ← Left map shows the <strong> building age distribution of properties sold. </strong>
+        Newer properteis will have better amenities and lower maintenance overheads.
+        The north-western suburbs such as <strong>Gowanbrae</strong> appears to have sold many newly developed properties. 
+        Conversely, the oldest buildings are concentarted in inner city suburbs such as 
+    <strong>Fitzroy, Middle Park 
+            and Kingsville.</strong>
+        Older properties often have greater value in land compared to the actual building. 
+        As we can see, they are located in regions with well-established infrastructure, which means these properties
+        possess factors that are beneficial future capital growth.
+        
+        <br> 
+         <br> 
+        Right map shows the <strong> price relative to number of bedrooms </strong>. 
+        Suburbs that are just outside the CBD, such as <strong>Toorak and St Kilda</strong>, 
+        appear as the most expensive. You can use the <strong>dropdown tool</strong> to find these suburbs.  
+        An additional ~20 km away from these suburbs, a room becomes 
+    <strong>2-3 times cheaper.</strong> →
+
+    </div>
+
+    <div id="map3" style="padding-top:20px" style="font-family: Arial"> 
+    </div>
+
+    <div id="map" style="padding-left:355px;font-family:Arial"> 
+    </div>
+        
+        
+
+        <p id="Calign">
+            . 
+            
+
+        <div id="map5" style="font-family:Arial, Helvetica, sans-serif"> 
+        </div>
+
+    
+        <div class="absolute4">
+            ← Left map shows the spatial distribution of <strong> properties 
+                that are less than 20-years-old</strong> (as of 2021).
+                Using Selection tools, we can observe that in recent years, <span class='townhouses_text'> townhouse </span> demand (or supply) 
+                have diminished considerably. In contrast, many more <span class='units_text'>units</span> 
+                have been sold in recent years as compared to ~20 years ago (particularly in Hawthorn and Glen Iris).
+                
+            <br> 
+            <br> 
+            Right chart shows that you will receive <strong>less land for each dollar paid
+            when the property is situated closer to the CBD</strong>  
+            (a square meter of land becomes more expensive). 
+            Particularly for <span class='houses_text'>houses</span>, distance is slightly more influential on price than land size -
+            meaning that when considering a property that either has large land or closer proximity to the city centre, 
+            you may find the former option to be more economical.
+            Occasionally, you will find <span class='units_text'>units</span> in the city 
+            that sell for a comparably more valuable price (see small red dots near bottom). →
+        </div>
+
+        
+
+        <div id="bubble2" style="padding-left:365px;font-family:Arial"> 
+        </div>
+    
+
+        <h2 id="Calign"> 
+            If you've considered location... WHEN is a good time? 
+        </h2>
+
+        <div id="linechart"> 
+        </div>
+
+        <div id="linechart2" style="padding-left:385px"> 
+        </div>
+
+        <div class="absolute5">
+            On average, sales prices tend to be <strong>at the beginnging of the year and 
+                gradually increase throughout the months.</strong> 
+            For example, <span class='units_text'>units</span> were lowest at $560k
+            in February (left) and at $1.6k/meter square of building in January (right).
+             There evern appears to be
+            an inverse relationship between <span class='units_text'>units</span>
+             and <span class='townhouses_text'> townhouses </span> - 
+             <span class='units_text'>unit</span> prices increase 
+            as <span class='townhouses_text'> townhouse </span> prices decrease. 
+            
+            <br>
+
+            Although <span class='houses_text'> houses </span> seem like 
+            the most costly type of property to purchase, 
+            <span class='townhouses_text'> townhouses </span> are in fact 
+            <strong>more expensive per dollar value. </strong>
+             
+        </div>
+
+        <p id="Calign" style="margin-top: 30px">
+           <strong>Visualisation created by Qianman Wang for FIT3179, 16/10/21. </strong> 
+        </p>
+
+        </body>
+        
+        </html>

@@ -1,0 +1,52 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 490,
+    "height": 400,
+    "title": "Golden Land-Building Ratio",
+    "projection": {"type": "mercator",
+  "center": [145.020, -37.835],
+  "scale": 52500},
+    "layer": [
+    {
+    "data": {
+    "url": "https://raw.githubusercontent.com/jess11111/FIT3174/main/features%20(3)%20(1)%20(3).topojson"
+   ,
+    "format": {"type": "topojson", "feature": "features"}
+    },
+    "mark": {"type": "geoshape", "fill": "#cdcdcd", "stroke": "white"}
+    },
+    {
+    "data": {
+    "url": "https://raw.githubusercontent.com/jess11111/FIT3174/main/landpercentage%20-%20Copy.csv"
+    },
+    "params": [
+      {"name": "Selection",
+      "select": {"type": "point", "fields": ["Type"]},
+      "bind": {"input": "select", "options": [null, "h", "t", "u"],
+      "labels": ["Show All", "House",  "Townhouse", "Unit"],
+      "name": "Property Type Selection:"}}
+    ],
+    "mark": {"type": "circle", "tooltip": {"content": "data"}},
+    "encoding": {
+    "longitude": {"field": "Longtitude", "type": "quantitative"},
+    "latitude": {"field": "Lattitude", "type": "quantitative"},
+    
+    "size": {"value": 22},
+    "opacity": 
+    {"condition": {"selection": "Selection", "value": 0.8},
+    "value": 0.0},
+    "color": {
+    "field": "Type",
+    "title": "Landpercentage",
+    "type": "nominal", "legend": null
+    },
+    "tooltip": [
+        {"field": "Landpercentage", "type": "quantitative", "title": "Land to Building Ratio"},
+        {"title": "Suburb", "field": "Suburb", "type": "nominal"},
+        {"title": "Longitude", "field": "Longtitude", "type": "quantitative"},
+        {"title": "Latitude", "field": "Lattitude", "type": "quantitative"}
+    ]
+    }
+    }
+    ]
+    }

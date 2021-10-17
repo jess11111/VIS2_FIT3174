@@ -1,0 +1,36 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 400,
+    "height": 220,
+    "title": {"text": "Average Price Relative to Building Size", "fontSize":18, "color": "#051750" },
+    "data": {"url": "https://raw.githubusercontent.com/jess11111/FIT3174/main/linechartdata_pricepermbuilding.csv"},
+    "mark": "line",
+    "encoding": {
+      "x": {"field": "Month", "type": "nominal", "sort": ["January", "February", "March","April", "May", "June","July", "September", "November","December"]
+      , "title":""},
+  
+      "y": {"field": "Avgmonthprice", "type": "quantitative" , "title":""},
+      "color": {"field": "Type", "type": "nominal", "legend": null},
+      "tooltip": [
+        {"field": "Avgmonthprice", "type": "quantitative", "title": "Average Price"},
+          {"title": "Month", "field": "Month", "type": "nominal"}
+      ]
+    },
+    "layer": [
+      {"mark": {"type": "line"}},
+      {
+        "mark": {"type": "text", "align": "centre", "dx": 4, "dy":14, "baseline":"bottom"},
+        "encoding": {
+          "text": {"field": "Avgmonthprice", "type": "quantitative","format":"$,.2s"},
+          
+          "opacity": {
+            "condition": {
+              "test": "datum['Avgmonthprice'] == '12495.14042' || datum['Avgmonthprice'] == '1636.921661' || datum['Avgmonthprice'] == '3426.026797' || datum['Price'] == '9000000' || datum['Price'] == '6500000' ",
+              "value": 2
+            },
+            "value": 0
+          }
+      }
+      }
+    ]
+  }

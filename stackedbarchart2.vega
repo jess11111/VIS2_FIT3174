@@ -1,0 +1,70 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+    "data": {"url": "https://raw.githubusercontent.com/jess11111/FIT3174/main/ref%20(version%201).csv"},
+    "title": {"text": "Average Price", "fontSize":18, "color": "#051750" },
+    "width": 360, "height": 450,
+    "resolve": {"scale": {"color": "independent"}},
+    "layer": [
+       {"mark": "bar",
+        "encoding": {
+          "x": {"aggregate": "mean", "field": "Price", "type": "quantitative", "title": "No. Sold", "axis": null
+          },
+          "y": {"field": "CouncilArea", 
+          "type": "ordinal", "title": "", 
+          "sort": ["Boroondara City Council",
+            "Darebin City Council", 
+          "Moreland City Council", 
+          "Glen Eira City Council",
+          "Moonee Valley City Council",
+          "Melbourne City Council",
+          "Maribyrnong City Council",
+          "Brimbank City Council",
+          "Bayside City Council",
+          "Port Phillip City Council",
+          "Yarra City Council",
+          "Monash City Council",
+          "Stonnington City Council",
+          "Hobsons Bay City Council",
+          "Manningham City Council",
+          "Whitehorse City Council",
+          "Maroondah City Council",
+          "Knox City Council"]
+          },
+
+          "color": {"field": "Type", "type": "nominal", "legend": null}, 
+
+       "tooltip":[{"field": "CouncilArea", "type": "nominal", "title": "Council"},
+        {"field": "Regionname", "type": "nominal", "title": "Region"},
+        {"aggregate": "mean", "field": "Price", "type": "quantitative", "title": "Price"}
+    ]
+          }
+       },
+  
+       {"mark": {"type": "text", "align": "left", "dx": 2, "dy": 3},
+        "encoding": {
+          "x": {"aggregate": "mean", "field": "Price", "type": "quantitative", "stack": "normalize"},
+          "y": {"field": "CouncilArea", "type": "nominal", "axis":null, 
+          "sort": ["Boroondara City Council", 
+            "Darebin City Council", 
+          "Moreland City Council", 
+          "Glen Eira City Council",
+          "Moonee Valley City Council",
+          "Melbourne City Council",
+          "Maribyrnong City Council",
+          "Brimbank City Council",
+          "Bayside City Council",
+          "Port Phillip City Council",
+          "Yarra City Council",
+          "Monash City Council",
+          "Stonnington City Council",
+          "Hobsons Bay City Council",
+          "Manningham City Council",
+          "Whitehorse City Council",
+          "Maroondah City Council",
+          "Knox City Council"]},
+          "color": {"field": "site", "type": "nominal", "scale": {"range": ["white"]}, "legend": null},
+          "text": {"aggregate": "mean", "field": "Price", "type": "quantitative","format":"$,.2s"}
+          }
+      }
+    ]
+  }

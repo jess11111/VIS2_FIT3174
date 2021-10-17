@@ -1,0 +1,43 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+        "url": "https://raw.githubusercontent.com/jess11111/FIT3174/main/heatmap.csv"
+    },
+    "title": "Pice of property sales throughout a year",
+    "config": {
+        "view": {
+            "strokeWidth": 0,
+            "step": 18
+        },
+        "axis": {
+            "domain": false
+        }
+    },
+    "mark": "rect",
+    "encoding": {
+        "x": {
+            "field": "Date",
+            "timeUnit": "day",
+            "type": "ordinal",
+            "title": "Day of week",
+            "axis": {
+                "labelAngle": 0,
+                "format": "%e"
+            }
+        },
+        "y": {
+            "field": "Date",
+            "timeUnit": "month",
+            "type": "ordinal",
+            "title": "Month"
+        },
+        "color": {
+            "field": "Price",
+            "aggregate": "mean",
+            "type": "quantitative",
+            "legend": {
+                "title": null
+            }
+        }
+    }
+  }

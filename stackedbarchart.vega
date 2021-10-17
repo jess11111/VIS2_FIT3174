@@ -1,0 +1,31 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+  "data": {"url": "https://raw.githubusercontent.com/jess11111/FIT3174/main/ref%20(version%201).csv"},
+  "title": {"text": "No. of Properties sold  →", "fontSize":18, "color": "#051750" },
+
+  "width": 350, "height": 450,
+  "resolve": {"scale": {"color": "independent"}},
+  "layer": [
+     {"mark": "bar",
+      "encoding": {
+        "x": {"aggregate": "count", "field": "Suburb", "type": "quantitative", "title": "No. Sold", "axis": null},
+        "y": {"field": "CouncilArea", "type": "nominal", "sort":"-x", "title": ""},
+        "color": {"field": "Type", "type": "nominal", "legend": null}, 
+     "tooltip":[
+       {"field": "CouncilArea", "type": "nominal", "title": "Council"},
+      {"field": "Regionname", "type": "nominal", "title": "Region"},
+      {"aggregate": "count", "field": "Suburb", "type": "quantitative", "title": "No. Sold"}
+    ]
+        }
+     },
+
+     {"mark": {"type": "text", "align": "left", "dx": 3, "dy": 3},
+      "encoding": {
+        "x": {"aggregate": "count", "field": "Suburb", "type": "quantitative"},
+        "y": {"field": "CouncilArea", "type": "nominal", "sort":"-x"},
+        "color": {"field": "site", "type": "nominal", "scale": {"range": ["black"]}, "legend": null},
+        "text": {"aggregate": "count", "field": "Suburb", "type": "quantitative", "format": ".0f"}
+        }
+    }
+  ]
+}

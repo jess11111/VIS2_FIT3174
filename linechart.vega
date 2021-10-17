@@ -1,0 +1,38 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 420,
+    "height": 220,
+    "title": {"text": "Monthly Price Trend", "fontSize":18, "color": "#051750" },
+    "description": "Average Sale Prices (2016-2018) Based on House Type.",
+    "data": {"url": "https://raw.githubusercontent.com/jess11111/FIT3174/main/linechartdata.csv"},
+    "mark": "line",
+    "encoding": {
+      "x": {"field": "Month", "type": "nominal", "sort": ["January", "February", "March","April", "May", "June","July", "September", "November","December"]
+        , "title":""},
+      "y": {"field": "Avgmonthprice", "type": "quantitative",  "title":""},
+
+      "tooltip": [
+        {"field": "Avgmonthprice", "type": "quantitative", "title": "Average Price"},
+        {"title": "Month", "field": "Month", "type": "nominal"}
+      ],
+
+      "color": {"field": "Type", "type": "nominal", "legend": null}
+    },
+    "layer": [
+      {"mark": {"type": "line"}},
+      {
+        "mark": {"type": "text", "align": "centre", "dx": -10, "dy":4, "baseline":"top"},
+        "encoding": {
+          "text": {"field": "Avgmonthprice", "type": "quantitative","format":"$,.2s"},
+          
+          "opacity": {
+            "condition": {
+              "test": "datum['Avgmonthprice'] == '1110382.735' || datum['Avgmonthprice'] == '1060703.704' || datum['Avgmonthprice'] == '557943.5644' || datum['Price'] == '9000000' || datum['Price'] == '6500000' ",
+              "value": 1
+            },
+            "value": 0
+          }
+      }
+      }
+    ]
+  }
