@@ -15,7 +15,7 @@
             "bind": {
               "input": "range",
               "min": 0,
-              "max": 19,
+              "max": 20,
               "step": 1,
               "name": "Age (Years) Selection"
             }
